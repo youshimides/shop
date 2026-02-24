@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список продуктов </title>
+    <title>Создания продуктов</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
@@ -18,19 +18,13 @@
     </header>
     <main>
         <div class="container mx-auto">
-            <h2>Каталог товаров</h2>
-            <div>
-                @foreach ($products as $product)
-                    <div class="border mb-4 flex">
-                         <img class="w-28 h-full aspect-1 mr-4" src="{{ Vite::asset($product->path_img) }}" alt="{{$product->title}}">
-                        <div>
-                            <h3>{{$product->title}}</h3>
-                            <p>{{$product->description}}</p>
-                            <p>{{$product->price}}</p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+            <form action="{{route('product.store')}}" method="POST">
+                @csrf
+                <input type="text" name="title" id="title" placeholder="Название продукта" required> <br>
+                <input type="number" name="price" id="price" placeholder="Цена продукта" required ><br>
+                <textarea name="description" id="description" placeholder="Описание продукта" required></textarea><br>
+                <input type="submit" value="Создать">
+            </form>
         </div>
     </main>
 </body>
