@@ -29,9 +29,11 @@
                             </h3>
                             <p>{{$product->description}}</p>
                             <p>{{$product->price}}</p>
-                            <div>
+                            <div class="ml-auto">
                                 <a href="">редактировать</a>
                                 <form action="" method="post"></form>
+                                @crsf
+                                @method('delete')
                                 <input type="submit" value="удалить">
                             </div>
                         </div>
