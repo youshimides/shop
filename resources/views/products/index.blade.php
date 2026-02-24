@@ -29,6 +29,11 @@
                             </h3>
                             <p>{{$product->description}}</p>
                             <p>{{$product->price}}</p>
+                            <div>
+                                <a href="">редактировать</a>
+                                <form action="" method="post"></form>
+                                <input type="submit" value="удалить">
+                            </div>
                         </div>
                     </div>
                 @endforeach
