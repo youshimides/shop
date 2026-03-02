@@ -29,13 +29,14 @@
                             </h3>
                             <p>{{$product->description}}</p>
                             <p>{{$product->price}}</p>
-                            <div class="ml-auto">
-                                <a href="">редактировать</a>
-                                <form action="" method="post"></form>
-                                @crsf
+                           <div class="ml-auto">
+                            <a href="{{ route('products.edit', ['product'=>$product]) }}">Редактировать</a>
+                            <form action="{{ route('products.destroy', ['product'=>$product]) }}" method="POST">
+                                @csrf
                                 @method('delete')
-                                <input type="submit" value="удалить">
-                            </div>
+                                <input type="submit" value="Удалить">
+                            </form>
+                        </div>  
                         </div>
                     </div>
                 @endforeach
